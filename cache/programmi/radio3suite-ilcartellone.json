@@ -93,5 +93,15 @@
     "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut_geo/30177080_1800.mp4",
     "date": "2026-08-22T05:33:00.000Z",
     "resolvedAt": 1787540600653
+  },
+  "ContentItem-e2aa307c-f7d7-4e08-9fce-9decec424098": {
+    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut_geo/30182582_1800.mp4",
+    "date": "2026-08-23T05:48:00.000Z",
+    "resolvedAt": 1787558483926
+  },
+  "ContentItem-27a4f735-e799-47c5-b65c-da1abf578e38": {
+    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut_geo/30182580_1800.mp4",
+    "date": "2026-08-23T05:48:00.000Z",
+    "resolvedAt": 1787558485588
   }
 }
