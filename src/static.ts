@@ -106,10 +106,7 @@ const podcasts = [
     title: "Trenta minuti",
     path: "programmi/radio3trentaminuti"
   },
-  {
-    title: "L'Italia in diretta - Pomeriggio",
-    path: "programmi/litaliaindiretta-pomeriggio"
-  },
+
    {
     title: "Sei gradi",
     path: "programmi/seigradi"
@@ -117,10 +114,6 @@ const podcasts = [
    {
     title: "GR Puglia",
     path: "programmi/grpuglia"
-  },
-   {
-    title: "Il concerto del mattino",
-    path: "programmi/ilconcertodelmattino"
   },
   {
     title: "Primo movimento",
@@ -138,22 +131,6 @@ const podcasts = [
     title: "Riverberi",
     path: "/programmi/riverberi"
   },
-  {
-    title: "Effetti personali. Musica e piccole storie di chi fa la radio",
-    path: "programmi/effettipersonalimusicaepiccolestoriedichifalaradio"
-  },
-   {
-    title: "Domenica in concerto",
-    path: "programmi/domenicainconcerto"
-  },
-  {
-    title: "I concerti del Quirinale",
-    path: "programmi/iconcertidelquirinale"
-  },
-{
-    title: "Radio3 Suite - Il cartellone",
-    path: "programmi/radio3suite-ilcartellone"
-  }
 ]
 
 const audiobooks = [
