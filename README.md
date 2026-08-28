@@ -11,19 +11,14 @@ Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono g
 | Battiti | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/battiti.xml |
 | Body and soul | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/bodyandsoul.xml |
 | Detectives - Casi risolti e irrisolti | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/detectives-casirisoltieirrisolti.xml |
-| Domenica in concerto | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/domenicainconcerto.xml |
-| Effetti personali. Musica e piccole storie di chi fa la radio | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/effettipersonalimusicaepiccolestoriedichifalaradio.xml |
 | Eta Beta | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/etabeta.xml |
 | Giro del Mondo in una Coppa | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/girodelmondoinunacoppa.xml |
 | GR Friuli Venezia Giulia | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/grfriuliveneziagiulia.xml |
 | GR Puglia | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/grpuglia.xml |
 | GR1 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/gr1.xml |
 | GR3 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/gr3.xml |
-| I concerti del Quirinale | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/iconcertidelquirinale.xml |
-| Il concerto del mattino | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/ilconcertodelmattino.xml |
 | L'edicola di Radio1 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/ledicoladiradio1.xml |
 | L'idealista | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/lidealista.xml |
-| L'Italia in diretta - Pomeriggio | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/litaliaindiretta-pomeriggio.xml |
 | La musica tra le righe | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/lamusicatralerighe.xml |
 | Lezioni di musica | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/lezionidimusica.xml |
 | Lillo e Greg 610 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/lilloegreg610.xml |
@@ -34,7 +29,6 @@ Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono g
 | Radio anch'io | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/radioanchio.xml |
 | Radio3 Mondo | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/radio3mondo.xml |
 | Radio3 Scienza | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/radio3scienza.xml |
-| Radio3 Suite - Il cartellone | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/radio3suite-ilcartellone.xml |
 | Revolution | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/revolution.xml |
 | Riverberi | https://giuliomagnifico.github.io/raiplaysound-feed/rss//programmi/riverberi.xml |
 | Sei gradi | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/seigradi.xml |
