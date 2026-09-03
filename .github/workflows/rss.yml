@@ -3,7 +3,7 @@ name: Generate Feeds
 on:
   workflow_dispatch:
   schedule:
-    - cron: "19 * * * *"
+    - cron: "*/5 * * * *"   # ogni 5 minuti (massimo consentito da GitHub)
 
 permissions:
   contents: write
