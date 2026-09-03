@@ -60,3 +60,16 @@ Per aggiungere programmi o audiolibri puoi forkare il repository e aggiungere ma
   title: "Radio3 Scienza",
   path: "programmi/radio3scienza"
 }
+```
+
+oppure per un audiolibro:
+
+```ts
+{
+  title: "Arancia meccanica",
+  path: "audiolibri/aranciameccanica"
+}
+```
+
+> [!NOTE]
+> La tabella con i feed o audiolibri nuovi si aggiorna automaticamente con il nuovo feed, in ordine alfabetico, quando viene eseguita la Action. Non aggiungere o modificare manualmente la tabella.
