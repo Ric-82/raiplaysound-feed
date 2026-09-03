@@ -13,8 +13,8 @@ Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono g
 | Detectives - Casi risolti e irrisolti | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/detectives-casirisoltieirrisolti.xml |
 | Eta Beta | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/etabeta.xml |
 | Giro del Mondo in una Coppa | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/girodelmondoinunacoppa.xml |
-| GR Friuli Venezia Giulia | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/grfriuliveneziagiulia.xml |
 | GR Puglia | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/grpuglia.xml |
+| GR Sicilia | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/grsicilia.xml |
 | GR1 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/gr1.xml |
 | GR3 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/gr3.xml |
 | L'edicola di Radio1 | https://giuliomagnifico.github.io/raiplaysound-feed/rss/programmi/ledicoladiradio1.xml |
