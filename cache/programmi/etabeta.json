@@ -135,9 +135,9 @@
     "resolvedAt": 1788009154614
   },
   "ContentItem-b2dafa3a-5617-49ca-9058-676547e31386": {
-    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/29991379_1800.mp3",
+    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/29991379_1800.mp3",
     "date": "2026-07-25T09:05:00.000Z",
-    "resolvedAt": 1787397616520
+    "resolvedAt": 1788610142356
   },
   "ContentItem-a7f9783d-dc43-42bc-9240-f0a2e48f0846": {
     "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30039472_1800.mp3",
@@ -145,9 +145,9 @@
     "resolvedAt": 1788009154275
   },
   "ContentItem-1499caf5-0ef1-4620-902d-14f8bff86019": {
-    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30085030_1800.mp3",
+    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30085030_1800.mp3",
     "date": "2026-08-08T09:08:00.000Z",
-    "resolvedAt": 1787394167992
+    "resolvedAt": 1788610141568
   },
   "ContentItem-b6e55b35-2e5e-4648-aecf-677c979ca427": {
     "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30128361_1800.mp3",
@@ -155,13 +155,18 @@
     "resolvedAt": 1788009153898
   },
   "ContentItem-b8a9b49d-d143-40d4-a1f6-fae5abf4a3dc": {
-    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30171681_1800.mp3",
+    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30171681_1800.mp3",
     "date": "2026-08-22T09:02:00.000Z",
-    "resolvedAt": 1787390770923
+    "resolvedAt": 1788610141155
   },
   "ContentItem-73895874-f5be-462d-9288-103fdb94b483": {
     "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30219023_1800.mp3",
     "date": "2026-08-29T09:02:00.000Z",
     "resolvedAt": 1788009153563
+  },
+  "ContentItem-7ba48ba7-9248-446c-b4ab-6e82d16294b2": {
+    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/30267722_1800.mp3",
+    "date": "2026-09-05T09:10:00.000Z",
+    "resolvedAt": 1788610140463
   }
 }
