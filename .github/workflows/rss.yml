@@ -3,7 +3,7 @@ name: Generate Feeds
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"   # ogni 5 minuti (massimo consentito da GitHub)
+    - cron: "*/5 * * * *" # ogni 5 minuti (massimo consentito da GitHub)
 
 permissions:
   contents: write
@@ -17,7 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -34,13 +33,13 @@ jobs:
       - name: Generate feeds
         run: npm run static
 
-      - name: Commit updated README and cache
+      # 🔥 VERSIONE CORRETTA: niente README, solo cache
+      - name: Commit updated cache
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add README.md
           git add -f cache/
-          git diff --cached --quiet || git commit -m "Update README and cache"
+          git diff --cached --quiet || git commit -m "Update cache"
           git push
 
       - name: Upload Pages artifact
@@ -51,10 +50,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
-
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5
