@@ -6,7 +6,6 @@ import { log, duration, fetchT, format, parseDate, mapLimit } from './utils.js'
 export { buildFeed, buildAll }
 
 const BASE = 'https://www.raiplaysound.it'
-const MP3_TTL = 1000 * 60 * 60 * 24 * 14 // 2 weeks
 
 const MEDIA_URL = 'https://creativemedia'
 const MEDIA_URL_FULL = 'https://creativemedia{0}-rai-it.akamaized.net/'
@@ -39,7 +38,7 @@ async function resolveMp3(relinker: string) {
   return url
 }
 
-async function buildFeed(program: string, forceRefresh: boolean = false) {
+async function buildFeed(program: string) {
   const start = performance.now()
   log('SERVE', program)
 
@@ -86,7 +85,6 @@ async function buildFeed(program: string, forceRefresh: boolean = false) {
         }
       } else {
         // Episodio già noto → NON fare refresh MP3
-        // Mantieni i dati in cache
       }
     } catch (err) {
       error(program, `${ep.title} / ${ep.episode_title}: ${(err as Error).message}`)
