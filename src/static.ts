@@ -11,22 +11,10 @@ type FeedItem = {
 }
 
 const podcasts: FeedItem[] = [
-  {
-    title: "GR Sicilia",
-    path: "programmi/grsicilia"
-  },
-  {
-    title: "GR3",
-    path: "programmi/gr3"
-  },
-  {
-    title: "Prima Pagina",
-    path: "programmi/primapagina"
-  },
-  {
-    title: "Radio3 Mondo",
-    path: "programmi/radio3mondo"
-  }
+  { title: "GR Sicilia", path: "grsicilia" },
+  { title: "GR3", path: "gr3" },
+  { title: "Prima Pagina", path: "primapagina" },
+  { title: "Radio3 Mondo", path: "radio3mondo" }
 ]
 
 const allFeeds: FeedItem[] = [...podcasts]
@@ -80,7 +68,7 @@ const podcastRows = markdownRows(sortedPodcasts)
 
 const readme = `# RaiPlay Sound Feed
 
-Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono generati automaticamente tramite GitHub Actions e GitHub Pages. In modo da potersi abbonare/ascoltare su qualsiasi client podcast e non esclusivamente tramite l’app RaiPlaySound.
+Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono generati automaticamente tramite GitHub Actions e GitHub Pages.
 
 ## Podcast
 
