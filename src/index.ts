@@ -23,6 +23,8 @@ await fastify.register(rateLimit, {
 })
 
 await initCache()
+
+// Avvio aggiornamento automatico
 buildAll()
 
 fastify.get<{ Params: { type: string; name: string } }>(
@@ -32,7 +34,6 @@ fastify.get<{ Params: { type: string; name: string } }>(
     const xml = await buildFeed(program)
 
     const lastModified = getModifiedStatus(program)
-
     const { modified, etag } = checkHash(xml, req, lastModified)
 
     if (!modified) return reply.code(304).send()
@@ -43,15 +44,19 @@ fastify.get<{ Params: { type: string; name: string } }>(
       .header('ETag', etag)
       .header('Last-Modified', lastModified.toUTCString())
       .send(xml)
+
     served++
   }
 )
 
+// 🔥 PATCH: rimuovere il secondo parametro (forceRefresh)
 fastify.get<{ Params: { type: string; name: string } }>(
   '/rss/refresh/:type/:name',
   async (req, reply) => {
     const program = `${req.params.type}/${req.params.name}`
-    await buildFeed(program, true).catch(message => error(program, message))
+
+    // buildFeed ora accetta solo 1 parametro
+    await buildFeed(program).catch(message => error(program, message))
 
     reply.code(200).send(`Manually refreshed ${program}!`)
   }
