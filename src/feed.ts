@@ -75,6 +75,7 @@ async function buildFeed(program: string, forceRefresh: boolean = false) {
 
     try {
       if (!cached) {
+        // Episodio nuovo → risolvi MP3
         const mp3 = await resolveMp3(ep.downloadable_audio?.url ?? ep.audio.url)
         log('NEW', program, ep.title)
         modified = true
@@ -83,15 +84,9 @@ async function buildFeed(program: string, forceRefresh: boolean = false) {
           date: parseDate(ep.track_info.date, ep.create_time),
           resolvedAt: now
         }
-      } else if (forceRefresh || now - Number(cached.resolvedAt) > MP3_TTL) {
-        const mp3 = await resolveMp3(ep.downloadable_audio?.url ?? ep.audio.url)
-        log('REFRESH', program, ep.title)
-        if (mp3 !== cached.mp3) modified = true
-        cache[id] = {
-          mp3,
-          date: parseDate(ep.track_info.date, ep.create_time),
-          resolvedAt: now
-        }
+      } else {
+        // Episodio già noto → NON fare refresh MP3
+        // Mantieni i dati in cache
       }
     } catch (err) {
       error(program, `${ep.title} / ${ep.episode_title}: ${(err as Error).message}`)
