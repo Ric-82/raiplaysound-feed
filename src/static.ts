@@ -5,7 +5,20 @@ import { initCache } from "./cache.js"
 
 const BASE_URL = "https://ric-82.github.io/raiplaysound-feed"
 
-const podcasts = [
+type FeedItem = {
+  title: string
+  path: string
+}
+
+const podcasts: FeedItem[] = [
+  {
+    title: "GR Sicilia",
+    path: "programmi/grsicilia"
+  },
+  {
+    title: "GR3",
+    path: "programmi/gr3"
+  },
   {
     title: "Prima Pagina",
     path: "programmi/primapagina"
@@ -13,26 +26,16 @@ const podcasts = [
   {
     title: "Radio3 Mondo",
     path: "programmi/radio3mondo"
-  },
-  {
-    title: "GR3",
-    path: "programmi/gr3"
-  },
-  {
-    title: "GR Sicilia",
-    path: "programmi/grsicilia"
   }
 ]
 
-const audiobooks = [] // nessun audiolibro
+const audiobooks: FeedItem[] = [] // nessun audiolibro
 
-const allFeeds = [...podcasts, ...audiobooks]
+const allFeeds: FeedItem[] = [...podcasts]
 
 const sortedPodcasts = [...podcasts].sort((a, b) =>
   a.title.localeCompare(b.title, "it", { sensitivity: "base" })
 )
-
-const sortedAudiobooks = [] // vuoto
 
 await initCache()
 await fs.mkdir("out/rss", { recursive: true })
@@ -54,7 +57,7 @@ for (const feed of allFeeds) {
   }
 }
 
-function markdownRows(feeds) {
+function markdownRows(feeds: FeedItem[]) {
   return feeds
     .map(feed => {
       const feedUrl = `${BASE_URL}/rss/${feed.path}.xml`
@@ -63,7 +66,7 @@ function markdownRows(feeds) {
     .join("\n")
 }
 
-function htmlRows(feeds) {
+function htmlRows(feeds: FeedItem[]) {
   return feeds
     .map(feed => {
       const feedUrl = `${BASE_URL}/rss/${feed.path}.xml`
@@ -76,7 +79,6 @@ function htmlRows(feeds) {
 }
 
 const podcastRows = markdownRows(sortedPodcasts)
-const audiobookRows = "" // nessun audiolibro
 
 const readme = `# RaiPlay Sound Feed
 
@@ -102,6 +104,9 @@ Per aggiungere programmi o audiolibri puoi modificare il file static.ts.
 
 I feed vengono aggiornati automaticamente tramite GitHub Actions ogni 5 minuti.
 
+## INFO
+
+Questo progetto è un'evoluzione del repository originale, adattato per funzionare interamente tramite GitHub Actions e GitHub Pages, senza dipendere da un server esterno.
 `
 
 await fs.writeFile("README.md", readme)
