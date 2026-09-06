@@ -11,10 +11,10 @@ type FeedItem = {
 }
 
 const podcasts: FeedItem[] = [
-  { title: "GR Sicilia", path: "grsicilia" },
-  { title: "GR3", path: "gr3" },
-  { title: "Prima Pagina", path: "primapagina" },
-  { title: "Radio3 Mondo", path: "radio3mondo" }
+  { title: "GR Sicilia", path: "programmi/grsicilia" },
+  { title: "GR3", path: "programmi/gr3" },
+  { title: "Prima Pagina", path: "programmi/primapagina" },
+  { title: "Radio3 Mondo", path: "programmi/radio3mondo" }
 ]
 
 const allFeeds: FeedItem[] = [...podcasts]
