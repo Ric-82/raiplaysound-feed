@@ -29,8 +29,6 @@ const podcasts: FeedItem[] = [
   }
 ]
 
-const audiobooks: FeedItem[] = [] // nessun audiolibro
-
 const allFeeds: FeedItem[] = [...podcasts]
 
 const sortedPodcasts = [...podcasts].sort((a, b) =>
@@ -82,7 +80,7 @@ const podcastRows = markdownRows(sortedPodcasts)
 
 const readme = `# RaiPlay Sound Feed
 
-Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono generati automaticamente tramite GitHub Actions e GitHub Pages.
+Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono generati automaticamente tramite GitHub Actions e GitHub Pages. In modo da potersi abbonare/ascoltare su qualsiasi client podcast e non esclusivamente tramite l’app RaiPlaySound.
 
 ## Podcast
 
