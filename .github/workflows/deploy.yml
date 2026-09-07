@@ -1,0 +1,27 @@
+name: Deploy Pages
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Generate Feeds"]
+    types:
+      - completed
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: rss
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v5
