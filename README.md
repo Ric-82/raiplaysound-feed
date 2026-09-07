@@ -4,26 +4,16 @@ Questo repository genera dei feed RSS per i programmi di RaiPlay Sound, e sono g
 
 ## Podcast
 
-| Programma | Feed RSS |
-|----------|----------|
-| GR Sicilia | https://ric-82.github.io/raiplaysound-feed/rss/programmi/grsicilia.xml |
-| GR3 | https://ric-82.github.io/raiplaysound-feed/rss/programmi/gr3.xml |
-| Prima Pagina | https://ric-82.github.io/raiplaysound-feed/rss/programmi/primapagina.xml |
-| Radio3 Mondo | https://ric-82.github.io/raiplaysound-feed/rss/programmi/radio3mondo.xml |
-
-## Audiolibri
-
-(Nessun audiolibro configurato)
-
-## Abbonarsi o aggiungere un feed
-
-Per abbonarsi basta copiare l'URL del feed dalla tabella nel lettore podcast.
-
-Per aggiungere programmi o audiolibri puoi modificare il file static.ts.
+| Programma     | Feed RSS |
+|---------------|----------|
+| GR Sicilia    | https://ric-82.github.io/raiplaysound-feed/rss/programmi/grsicilia.xml |
+| GR3           | https://ric-82.github.io/raiplaysound-feed/rss/programmi/gr3.xml |
+| Prima Pagina  | https://ric-82.github.io/raiplaysound-feed/rss/programmi/primapagina.xml |
+| Radio3 Mondo  | https://ric-82.github.io/raiplaysound-feed/rss/programmi/radio3mondo.xml |
 
 ## Aggiornamento automatico
 
-I feed vengono aggiornati automaticamente tramite GitHub Actions ogni 5 minuti.
+I feed vengono aggiornati automaticamente tramite GitHub Actions.
 
 ## INFO
 
