@@ -64,8 +64,10 @@ async function buildFeed(program: string) {
   })
 
   // ⭐ PROCESSA SOLO GLI ULTIMI 5 EPISODI
-  const episodes = data.block.cards
-    .sort((a, b) => new Date(b.track_info.date).getTime() - new Date(a.track_info.date).getTime())
+  const episodes = (data.block.cards as any[])
+    .sort((a: any, b: any) =>
+      new Date(b.track_info.date).getTime() - new Date(a.track_info.date).getTime()
+    )
     .slice(0, 5)
 
   const currentEps = new Set<string>()
