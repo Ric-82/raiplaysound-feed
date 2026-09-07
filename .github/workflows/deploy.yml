@@ -1,7 +1,6 @@
 name: Deploy Pages
 
 on:
-  workflow_dispatch:
   workflow_run:
     workflows: ["Generate Feeds"]
     types:
@@ -18,10 +17,8 @@ jobs:
       name: github-pages
 
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: rss
+      - name: Download Pages artifact
+        uses: actions/download-pages-artifact@v5
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5
