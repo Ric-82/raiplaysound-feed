@@ -6,7 +6,6 @@ import { log, duration, fetchT, format, parseDate, mapLimit } from './utils.js'
 export { buildFeed, buildAll }
 
 const BASE = 'https://www.raiplaysound.it'
-
 const MEDIA_URL = 'https://creativemedia'
 const MEDIA_URL_FULL = 'https://creativemedia{0}-rai-it.akamaized.net/'
 const PATTERN = /ostr(?<number>\d+)\/(?<file>.*?mp\d)/
@@ -64,7 +63,11 @@ async function buildFeed(program: string) {
     podcast: true
   })
 
+  // ⭐ PROCESSA SOLO GLI ULTIMI 5 EPISODI
   const episodes = data.block.cards
+    .sort((a, b) => new Date(b.track_info.date).getTime() - new Date(a.track_info.date).getTime())
+    .slice(0, 5)
+
   const currentEps = new Set<string>()
 
   for (const ep of episodes) {
@@ -74,7 +77,6 @@ async function buildFeed(program: string) {
 
     try {
       if (!cached) {
-        // Episodio nuovo → risolvi MP3
         const mp3 = await resolveMp3(ep.downloadable_audio?.url ?? ep.audio.url)
         log('NEW', program, ep.title)
         modified = true
@@ -83,8 +85,6 @@ async function buildFeed(program: string) {
           date: parseDate(ep.track_info.date, ep.create_time),
           resolvedAt: now
         }
-      } else {
-        // Episodio già noto → NON fare refresh MP3
       }
     } catch (err) {
       error(program, `${ep.title} / ${ep.episode_title}: ${(err as Error).message}`)
@@ -93,6 +93,7 @@ async function buildFeed(program: string) {
     currentEps.add(id)
   }
 
+  // ⭐ Rimuovi dalla cache gli episodi non più presenti tra gli ultimi 5
   const missing = Object.keys(cache).filter(id => !currentEps.has(id))
   for (const id of missing) {
     log('DELETE', program, id)
