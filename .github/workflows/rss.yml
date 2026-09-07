@@ -3,7 +3,7 @@ name: Generate Feeds
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *" # ogni 5 minuti (massimo consentito da GitHub)
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: write
@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -33,8 +34,9 @@ jobs:
       - name: Generate feeds
         run: npm run static
 
-      # 🔥 VERSIONE CORRETTA: niente README, solo cache
+      # Commit SOLO quando il workflow è manuale
       - name: Commit updated cache
+        if: github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -52,6 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5
