@@ -2,6 +2,8 @@ name: Generate Feeds
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [external-trigger]
   schedule:
     - cron: "*/5 * * * *"
 
