@@ -87,11 +87,11 @@ jobs:
           path: out
 
   deploy:
-    if: env.NO_CHANGES != '1'
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
+        if: env.NO_CHANGES != '1'
         uses: actions/deploy-pages@v5
