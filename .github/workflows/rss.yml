@@ -38,10 +38,37 @@ jobs:
       - name: Clear cache
         run: rm -rf cache/*
 
-      - name: Generate feeds
+      - name: Generate feeds (local only)
         run: npm run static
 
+      # ---------------------------------------------------------
+      # 🔥 CONFRONTO FEED: SE NON CI SONO NOVITÀ, STOPPA TUTTO
+      # ---------------------------------------------------------
+      - name: Compare feeds
+        id: compare
+        run: |
+          echo "Checking for updates..."
+          CHANGED=0
+
+          for FEED in grsicilia gr3 primapagina radio3mondo; do
+            echo "Checking $FEED..."
+            curl -s https://ric-82.github.io/raiplaysound-feed/rss/programmi/$FEED.xml -o old_$FEED.xml || true
+            diff -q old_$FEED.xml out/rss/programmi/$FEED.xml || CHANGED=1
+          done
+
+          if [ "$CHANGED" -eq 0 ]; then
+            echo "NO_CHANGES=1" >> $GITHUB_ENV
+            echo "No changes detected."
+          else
+            echo "NO_CHANGES=0" >> $GITHUB_ENV
+            echo "Changes detected."
+          fi
+
+      # ---------------------------------------------------------
+      # 🔥 COMMIT SOLO SE CI SONO NOVITÀ
+      # ---------------------------------------------------------
       - name: Commit updated cache
+        if: env.NO_CHANGES != '1'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -50,17 +77,21 @@ jobs:
           git diff --cached --quiet || git commit -m "Update cache"
           git push
 
+      # ---------------------------------------------------------
+      # 🔥 DEPLOY SOLO SE CI SONO NOVITÀ
+      # ---------------------------------------------------------
       - name: Upload Pages artifact
+        if: env.NO_CHANGES != '1'
         uses: actions/upload-pages-artifact@v5
         with:
           path: out
 
   deploy:
+    if: env.NO_CHANGES != '1'
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5
