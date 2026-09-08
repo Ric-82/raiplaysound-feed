@@ -42,9 +42,9 @@ jobs:
         run: npm run static
 
       # ---------------------------------------------------------
-      # 🔥 CONFRONTO FEED: SE NON CI SONO NOVITÀ, STOPPA TUTTO
+      # 🔥 CONFRONTO GUID: SE NON CI SONO NOVITÀ, STOPPA TUTTO
       # ---------------------------------------------------------
-      - name: Compare feeds
+      - name: Compare latest GUIDs
         id: compare
         run: |
           echo "Checking for updates..."
@@ -52,16 +52,28 @@ jobs:
 
           for FEED in grsicilia gr3 primapagina radio3mondo; do
             echo "Checking $FEED..."
+
+            # Scarica feed pubblicato
             curl -s https://ric-82.github.io/raiplaysound-feed/rss/programmi/$FEED.xml -o old_$FEED.xml || true
-            diff -q old_$FEED.xml out/rss/programmi/$FEED.xml || CHANGED=1
+
+            # Estrai primo GUID del feed pubblicato
+            OLD_GUID=$(grep -m1 "<guid" old_$FEED.xml | sed -e 's/.*<guid[^>]*>//' -e 's/<\/guid>.*//')
+
+            # Estrai primo GUID del feed appena generato
+            NEW_GUID=$(grep -m1 "<guid" out/rss/programmi/$FEED.xml | sed -e 's/.*<guid[^>]*>//' -e 's/<\/guid>.*//')
+
+            echo "OLD: $OLD_GUID"
+            echo "NEW: $NEW_GUID"
+
+            [ "$OLD_GUID" != "$NEW_GUID" ] && CHANGED=1
           done
 
           if [ "$CHANGED" -eq 0 ]; then
             echo "NO_CHANGES=1" >> $GITHUB_ENV
-            echo "No changes detected."
+            echo "No new episodes detected."
           else
             echo "NO_CHANGES=0" >> $GITHUB_ENV
-            echo "Changes detected."
+            echo "New episodes detected."
           fi
 
       # ---------------------------------------------------------
