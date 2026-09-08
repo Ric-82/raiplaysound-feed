@@ -94,8 +94,6 @@ jobs:
     needs: build
     if: needs.build.outputs.changes == '1'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5
