@@ -19,6 +19,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      changes: ${{ steps.compare.outputs.changes }}
 
     steps:
       - name: Checkout
@@ -42,7 +44,7 @@ jobs:
         run: npm run static
 
       # ---------------------------------------------------------
-      # 🔥 CONFRONTO GUID: SE NON CI SONO NOVITÀ, STOPPA TUTTO
+      # 🔥 CONFRONTO GUID
       # ---------------------------------------------------------
       - name: Compare latest GUIDs
         id: compare
@@ -53,13 +55,9 @@ jobs:
           for FEED in grsicilia gr3 primapagina radio3mondo; do
             echo "Checking $FEED..."
 
-            # Scarica feed pubblicato
             curl -s https://ric-82.github.io/raiplaysound-feed/rss/programmi/$FEED.xml -o old_$FEED.xml || true
 
-            # Estrai primo GUID del feed pubblicato
             OLD_GUID=$(grep -m1 "<guid" old_$FEED.xml | sed -e 's/.*<guid[^>]*>//' -e 's/<\/guid>.*//')
-
-            # Estrai primo GUID del feed appena generato
             NEW_GUID=$(grep -m1 "<guid" out/rss/programmi/$FEED.xml | sed -e 's/.*<guid[^>]*>//' -e 's/<\/guid>.*//')
 
             echo "OLD: $OLD_GUID"
@@ -68,19 +66,13 @@ jobs:
             [ "$OLD_GUID" != "$NEW_GUID" ] && CHANGED=1
           done
 
-          if [ "$CHANGED" -eq 0 ]; then
-            echo "NO_CHANGES=1" >> $GITHUB_ENV
-            echo "No new episodes detected."
-          else
-            echo "NO_CHANGES=0" >> $GITHUB_ENV
-            echo "New episodes detected."
-          fi
+          echo "changes=$CHANGED" >> $GITHUB_OUTPUT
 
       # ---------------------------------------------------------
       # 🔥 COMMIT SOLO SE CI SONO NOVITÀ
       # ---------------------------------------------------------
       - name: Commit updated cache
-        if: env.NO_CHANGES != '1'
+        if: steps.compare.outputs.changes == '1'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -90,20 +82,20 @@ jobs:
           git push
 
       # ---------------------------------------------------------
-      # 🔥 DEPLOY SOLO SE CI SONO NOVITÀ
+      # 🔥 UPLOAD ARTIFACT SOLO SE CI SONO NOVITÀ
       # ---------------------------------------------------------
       - name: Upload Pages artifact
-        if: env.NO_CHANGES != '1'
+        if: steps.compare.outputs.changes == '1'
         uses: actions/upload-pages-artifact@v5
         with:
           path: out
 
   deploy:
     needs: build
+    if: needs.build.outputs.changes == '1'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
-        if: env.NO_CHANGES != '1'
         uses: actions/deploy-pages@v5
