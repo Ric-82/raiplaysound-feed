@@ -1,27 +1,27 @@
 {
+  "ContentItem-28879ff3-66a1-44e4-ada7-f747a3ade798": {
+    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30745026_1800.mp3",
+    "date": "2026-11-03T08:02:00.000Z",
+    "resolvedAt": 1793693188187
+  },
   "ContentItem-349b1eb1-4030-4a54-8799-e8fd6045d398": {
-    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30744340_1800.mp3",
+    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30744340_1800.mp3",
     "date": "2026-11-03T06:29:00.000Z",
-    "resolvedAt": 1793692250136
+    "resolvedAt": 1793693189081
   },
   "ContentItem-347e2adb-8f32-4d4a-9343-b54a37e0bfdf": {
-    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30742333_1800.mp3",
+    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30742333_1800.mp3",
     "date": "2026-11-02T18:02:00.000Z",
-    "resolvedAt": 1793692250379
+    "resolvedAt": 1793693189577
   },
   "ContentItem-591065d7-80a3-4b3b-83f6-002863bba38c": {
-    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30740667_1800.mp3",
+    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30740667_1800.mp3",
     "date": "2026-11-02T15:58:00.000Z",
-    "resolvedAt": 1793692250619
+    "resolvedAt": 1793693190040
   },
   "ContentItem-3fdb3b83-bfc3-4770-a9e0-3307cf4527c1": {
-    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30739210_1800.mp3",
+    "mp3": "https://creativemedia3-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30739210_1800.mp3",
     "date": "2026-11-02T13:06:00.000Z",
-    "resolvedAt": 1793692250847
-  },
-  "ContentItem-eaf7c5c4-a0bb-4ff7-a660-688e50cc84eb": {
-    "mp3": "https://creativemedia4-rai-it.akamaized.net/podcastcdn/Rai/audiocut/gr3_audiocut/30736378_1800.mp3",
-    "date": "2026-11-02T08:09:00.000Z",
-    "resolvedAt": 1793692251070
+    "resolvedAt": 1793693190412
   }
 }
